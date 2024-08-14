@@ -71,8 +71,7 @@ jobs:
         with:
           name: code
           path: .
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Execute component test
         run: bash ci/component-test.sh
 
@@ -85,8 +84,6 @@ jobs:
         with:
           name: code
           path: .
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Performance-test
         run: bash ci/performance-test.sh
