@@ -56,5 +56,18 @@ jobs:
 
       - name: build docker
         run: bash ci/build-docker.sh
+
       - name: push docker
         run: bash ci/push-docker.sh
+
+  System-testing:
+    runs-on: ubuntu-latest
+    needs: [Docker-image]
+    permissions:
+      packages: read
+    steps:
+      - name: Execute component test
+        run: bash ci/component-test.sh
+
+      - name: Performance-test
+        run: bash ci/performance-test.sh
